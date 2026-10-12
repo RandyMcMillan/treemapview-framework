@@ -87,6 +87,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     if ( delegate != nil )
         [nc removeObserver: delegate name:nil object:self];
 
+    [_zoomer release];
     [_rootItemRenderer release];
     [self deallocContentCache]; 
 
