@@ -399,6 +399,15 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
     [self deallocContentCache];
 }
 
+- (void) stopZooming
+{
+    if ( _zoomer == nil )
+        return;
+
+    [_zoomer release];
+    _zoomer = nil;
+}
+
 - (void) reloadData
 {
     NSAssert(![self zoomingInProgress], @"cannot reload tree map while zooming is in progress");
@@ -746,8 +755,7 @@ NSString *TMVTouchedItem = @"TreeMapViewTouchedItem"; //key for touched item in 
 		
 	if ( [zoomInfo hasFinished] )
 	{
-		[_zoomer release];
-		_zoomer = nil;
+		[self stopZooming];
 		
 		[self setNeedsDisplay: YES];
 	}

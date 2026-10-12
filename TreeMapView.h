@@ -27,6 +27,7 @@ typedef TMVItem* TMVCellId;
 }
 
 - (void) invalidateCanvasCache; //just delete the cached view content
+- (void) stopZooming;
 - (void) reloadData;
 - (void) reloadAndPerformZoomIntoItem: (NSArray*) path;
 	//before relaod, a zoom in effect is shown
@@ -100,4 +101,3 @@ extern NSString *TMVTouchedItem;	//key for touched item in userInfo of a TreeMap
 - (void)treeMapViewSelectionIsChanging: (NSNotification*) notification; //not yet implemented
 - (void)treeMapViewItemTouched: (NSNotification*) notification;
 @end
-
